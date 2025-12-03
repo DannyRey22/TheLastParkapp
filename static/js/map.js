@@ -145,18 +145,34 @@ function ubicarMasCercano() {
 // ===========================
 //   EVENTOS
 // ===========================
-document.getElementById("searchBtn").addEventListener("click", buscarParques);
+function registrarEventos() {
+    const searchBtn   = document.getElementById("searchBtn");
+    const listAllBtn  = document.getElementById("listAllBtn");
+    const locateBtn   = document.getElementById("locateBtn");
 
-document.getElementById("listAllBtn").addEventListener("click", () => {
-    mostrarParques(parques);
-    llenarLista(parques);
-});
+    if (searchBtn) {
+        searchBtn.addEventListener("click", buscarParques);
+    }
 
-document.getElementById("locateBtn").addEventListener("click", ubicarMasCercano);
+    if (listAllBtn) {
+        listAllBtn.addEventListener("click", () => {
+            mostrarParques(parques);
+            llenarLista(parques);
+        });
+    }
+
+    if (locateBtn) {
+        locateBtn.addEventListener("click", ubicarMasCercano);
+    }
+}
+
 
 
 // ===========================
 //   INICIO
 // ===========================
-iniciarMapa();
+document.addEventListener("DOMContentLoaded", () => {
+    iniciarMapa();
+    registrarEventos();
+});
 
