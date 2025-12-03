@@ -2,38 +2,44 @@
 {% block title %}Agregar Parque{% endblock %}
 
 {% block content %}
-<h2>Agregar Parque</h2>
 
-<form method="POST" class="formulario">
+<div class="form-container">
+    
+    <h2 class="form-title">Agregar Parque</h2>
 
-  <label>Nombre:</label>
-  <input name="nombre" required>
+    <form method="POST" class="form-card">
 
-  <label>Localidad:</label>
-  <input name="localidad" required>
+        <label>Nombre:</label>
+        <input name="nombre" required>
 
-  <label>Dirección:</label>
-  <input name="direccion" required>
+        <label>Localidad:</label>
+        <input name="localidad" required>
 
-  <label>Tamaño (m²):</label>
-  <input name="tamano" type="number" required>
+        <label>Dirección:</label>
+        <input name="direccion" required>
 
-  <label>Tipo:</label>
-  <input name="tipo" required>
+        <label>Tamaño (m²):</label>
+        <input name="tamano" type="number" required>
 
-  <label>Estado:</label>
-  <input name="estado" required>
+        <label>Tipo:</label>
+        <input name="tipo" required>
 
-  <label>Canchas:</label>
-  <input name="canchas" required>
+        <label>Estado:</label>
+        <input name="estado" required>
 
-  <label>Juegos:</label>
-  <input name="juegos" required>
+        <label>Canchas:</label>
+        <input name="canchas" required>
 
-  <label>Último mantenimiento:</label>
-  <input name="mantenimiento" type="date" required>
+        <label>Juegos:</label>
+        <input name="juegos" required>
 
-  <button class="btn">Guardar</button>
-</form>
+        <label>Último mantenimiento:</label>
+        <input name="mantenimiento" type="date" required>
+
+        <button class="btn save-btn">Guardar</button>
+
+    </form>
+
+</div>
 
 {% endblock %}

@@ -8,7 +8,6 @@
   --glass: rgba(255,255,255,0.7);
   font-family: Inter, ui-sans-serif, system-ui;
 }
-
 body{
   margin:0;
   background:linear-gradient(180deg,var(--bg),#f0fff7);
@@ -56,8 +55,8 @@ body{
 .brand-logo{
   width: 80px;
   height: auto;
-}
 
+}
 .spinner{
   width:56px;
   height:56px;
@@ -72,21 +71,23 @@ body{
 
 /* ---------------- HEADER NUEVO ---------------- */
 
-.top-header {
+/* ---------------- HEADER NUEVO CENTRADO ---------------- */
+
+.top-header{
   position: fixed;
   top: 0;
-  left: 0;
   width: 100%;
-  height: 120px;
-  background: linear-gradient(90deg, var(--accent), #00c27a);
-  padding: 5px 0;
-  border-bottom: 4px solid #00965a;
-  box-shadow: 0 4px 18px rgba(0,0,0,0.12);
+  padding: 5px 0 10px;
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 999;
+  background: #00c27a; 
+
 }
+
+
+
 
 .title-miparque {
   font-family: 'Amatic SC', sans-serif;
@@ -103,14 +104,27 @@ body{
   opacity: 0.95;
 }
 
-.header-actions{
+.header-actions {
   position: absolute;
   bottom: 18px;
+  left: 18px;
   right: 18px;
   display: flex;
   align-items: center;
   gap: 14px;
 }
+
+.left-buttons {
+  display: flex;
+  gap: 14px;
+}
+
+.right-buttons {
+  display: flex;
+  gap: 14px;
+  margin-left: auto; 
+}
+
 
 .search-bar{
   display:flex;
@@ -135,28 +149,27 @@ body{
   cursor:pointer;
   color:white;
 }
-
-.header-btn{
-  background:white;
-  color:var(--accent);
-  padding:10px 16px;
-  border-radius:12px;
-  border:none;
-  font-weight:700;
-  cursor:pointer;
-  box-shadow:0 6px 18px rgba(0,0,0,0.15);
-  transition:0.2s;
+.header-actions a {
+  background: transparent;       /* Sin fondo */
+  color: white;                  /* Texto blanco */
+  border: none;                  /* Sin borde */
+  padding: 8px 16px;             /* Espaciado cómodo */
+  font-weight: 600;              /* Más visible */
+  text-decoration: none;         /* Quitar subrayado */
+  box-shadow: none;              /* Sin sombra inicial */
+  transition: all 0.3s ease;     /* Transición suave */
+  cursor: pointer;
 }
 
-.header-btn:hover{
-  transform:scale(1.06);
+.header-actions a:hover {
+  box-shadow: 0 2px 6px rgba(0,0,0,0.25); /* Sombra ligera */
+  transform: translateY(-2px);            /* Pequeño levantamiento */
 }
 
-.header-btn.ghost{
-  background:transparent;
-  border:2px solid white;
-  color:white;
-}
+
+
+
+
 
 h1{font-size:20px;margin:0}
 p.tag{margin:0;font-size:12px;color:var(--muted)}
@@ -166,58 +179,15 @@ p.tag{margin:0;font-size:12px;color:var(--muted)}
 .btn:hover{transform:scale(1.05)}
 .btn.ghost{background:transparent;border:2px solid rgba(11,42,26,0.08);color:var(--accent)}
 
-/* ----------------------------------------------------------- */
-/* 👉 AJUSTE PRINCIPAL: contenedor del mapa y layout */
-/* ----------------------------------------------------------- */
+main{margin-top: 115px;display:grid;grid-template-columns:1fr 420px;gap:20px;padding:18px;align-items:start}
+#map{margin-top: 400px; width:100%;height:70vh;border-radius:18px;box-shadow:0 12px 40px rgba(0,0,0,0.08);overflow:hidden}
 
-main{
-  margin-top: 130px;
-  display: grid;
-  grid-template-columns: 1fr 350px;
-  gap: 20px;
-  padding: 18px;
-  align-items: start;
-
-  /* 👉 SE AGREGA ALTURA REAL PARA QUE EL MAPA NO SE COMPRESIONE */
-  height: calc(100vh - 150px);
-}
-
-/* 👉 NUEVO contenedor opcional para evitar que aside tape el mapa */
-.map-wrapper {
-  width: 100%;
-  height: 100%;
-}
-
-/* 👉 ALTURA TOTAL GARANTIZADA DEL MAPA */
-#map {
-  width: 100%;
-  height: calc(100vh - 150px); /* evita que quede oculto debajo del header */
-  min-height: 500px;            /* asegura un mínimo visible */
-  border-radius: 18px;
-  background: #e5e5e5;          /* para comprobar si está apareciendo */
-  position: relative;
-  z-index: 1;
-}
-
-
-/* ----------------------------------------------------------- */
-
-aside{
-  position:sticky;
-  top:22px;
-  height:calc(100vh - 44px);
-  padding:18px;
-  background:var(--card);
-  border-radius:18px;
-  box-shadow:0 8px 24px rgba(0,0,0,0.06);
-  overflow:auto;
-
-  /* 👉 PARA QUE NO SE SUPERTE AL MAPA */
-  z-index: 2;
-}
+aside{margin-top: 400px;position:sticky;top:22px;height:calc(70vh - 44px);padding:18px;background:var(--card);border-radius:18px;box-shadow:0 8px 24px rgba(0,0,0,0.06);overflow:auto}
 
 .search{display:flex;gap:8px;margin-bottom:12px}
-.search input{flex:1;padding:10px 12px;border-radius:10px;border:2px solid rgba(11,42,26,0.06);font-weight:600}
+.search input{ flex:1;padding:10px 12px;border-radius:10px;border:2px solid rgba(11,42,26,0.06);font-weight:600}
+
+
 
 .park{display:flex;gap:12px;align-items:center;background:linear-gradient(180deg,#fff, #fbfff9);padding:12px;border-radius:12px;border:1px solid rgba(11,42,26,0.04);opacity:0;transform:translateY(10px);animation:show 0.4s ease forwards}
 @keyframes show{to{opacity:1;transform:translateY(0)}}
@@ -228,67 +198,450 @@ aside{
 .park p{margin:4px 0 0;font-size:12px;color:var(--muted)}
 .meta{text-align:right;font-size:12px;color:var(--muted);margin-left:auto}
 
+
+
 .park-icon-bounce{animation:jump 1.6s infinite ease-in-out}
 @keyframes jump{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
 
+
 footer{padding:20px;text-align:center;font-size:12px;color:var(--muted)}
 
-@media(max-width:1100px){
-  main{grid-template-columns:1fr;height:auto;}
-  aside{position:static;height:auto;margin-top:10px}
-  #map{height:60vh}
+@media(max-width:980px){main{grid-template-columns:1fr}aside{position:static;height:auto;margin-top:10px}#map{height:60vh}}
+
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background:  #00c27a; 
+  padding: 10px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 4px solid transparent; /* No se ve al inicio */
+  box-shadow: none; /* o rgba(0,0,0,0.05) si quieres un poco de profundidad */
+  border-radius: 0 0 18px 18px;
+  z-index: 999;
+  transition: all 0.3s ease;
 }
 
+
+header .logo {
+  width: 80px;
+  height: auto;
+}
+
+header nav {
+  display: flex;
+  gap: 20px;
+}
+
+header nav a {
+  color: white;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+header nav a:hover {
+  background: rgba(255,255,255,0.15);
+  transform: scale(1.05);
+}
+
+.wave-bg {
+  position: absolute;
+  width: 200%;         /* más ancho para cubrir bien */
+  height: 135vh;       /* cubrir casi toda la pantalla */
+  background: #00c27a;
+  border-radius: 0 0 50% 50%; /* curva hacia abajo */
+  top: -50%;           /* ajustar posición vertical */
+  left: -50%;          /* centrar horizontalmente */
+  transform: rotate(0deg); /* sin rotación, opcional */
+  z-index: -1;
+}
+
+.park-card {
+  background: var(--card);
+  border-radius: 18px;
+  padding: 16px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+  transform: translateY(10px);
+  opacity: 0;
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.icon-bounce {
+  animation: bounce 1.5s infinite ease-in-out;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+/* ELEMENTOS FLOTANTES TIPO PARQUE */
+.floating-elements {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.leaf {
+  width: 40px;
+  height: 40px;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path fill="%2300a86b" d="M32 0 C48 16, 56 32, 32 64 C16 48, 8 32, 32 0 Z"/></svg>') no-repeat center center;
+  background-size: contain;
+  position: absolute;
+  top: -50px;
+  left: 50%;
+  animation: floatLeaf 10s linear infinite;
+  opacity: 0.7;
+}
+
+
+.leaf1 { left: 10%; animation-duration: 12s; }
+.leaf2 { left: 40%; animation-duration: 9s; }
+.leaf3 { left: 70%; animation-duration: 14s; }
+
+@keyframes floatLeaf {
+  0% { transform: translateY(0) rotate(0deg); opacity: 0.5; }
+  50% { transform: translateY(50vh) rotate(180deg); opacity: 0.8; }
+  100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+}
+
+
+
+/* ANIMACIÓN DE APARICIÓN DE TARJETAS */
+.park-card {
+  transform: translateY(20px) scale(0.95);
+  opacity: 0;
+  animation: parkAppear 0.6s ease forwards;
+}
+
+@keyframes parkAppear {
+  to {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+.forest-overlay {
+  position: absolute;
+  top: 100px;      /* mejor que margin-top */
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-image: url("../img/bosque.png");
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: contain;
+  pointer-events: none;
+  z-index: 1;
+}
+.hero-description {
+  margin-top: 100px; 
+  text-align: center;
+  padding: 40px 20px;
+  animation: fadeIn 1s ease;
+}
+
+.hero-title {
+  font-family: 'Amatic SC', sans-serif;
+  font-size: 74px;
+  font-weight: 700;
+  color: #00a86b;
+  letter-spacing: 3px;
+  margin: 0;
+}
+
+.hero-subtitle {
+  font-size: 22px;
+  max-width: 700px;
+  margin: 18px auto 0;
+  color: #2b4d3a;
+  opacity: 0.9;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+/* Animación suave */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* CONTENEDOR PRINCIPAL */
+.lista-container {
+  margin-top: 0; /* evita que lo tape el header */
+  padding: 30px 20px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* TÍTULO */
 .titulo-lista {
-    text-align: center;
-    margin-bottom: 25px;
-    font-size: 28px;
-    font-weight: bold;
+  font-family: 'Amatic SC', sans-serif;
+  font-size: 64px;
+  color: var(--accent);
+  text-align: center;
+  margin-bottom: 30px;
 }
 
+/* WRAPPER CON SOMBRA Y FONDO DE TARJETA */
+.tabla-wrapper {
+  background: var(--card);
+  padding: 20px;
+  border-radius: 18px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+  overflow-x: auto; /* móvil responsivo */
+}
+
+/* TABLA */
 .tabla-parques {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 0 auto;
-    background: white;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
 }
 
 .tabla-parques thead {
-    background: #2c7a7b;
-    color: white;
+  background: var(--accent);
+  color: white;
 }
 
-.tabla-parques th,
+.tabla-parques th {
+  padding: 14px 10px;
+  text-align: left;
+  font-weight: 700;
+}
+
 .tabla-parques td {
-    padding: 12px 16px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
+  padding: 12px 10px;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
 }
 
 .tabla-parques tr:hover {
-    background: #f1f1f1;
+  background: rgba(0, 162, 107, 0.06);
+  transition: 0.3s;
 }
 
+/* BOTONES */
 .btn-table {
-    padding: 6px 12px;
-    background: #3182ce;
-    color: white;
-    text-decoration: none;
-    border-radius: 6px;
-    font-size: 14px;
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 12px;
+  background: var(--accent);
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
 }
 
 .btn-table:hover {
-    background: #2769a3;
+  background: #008d57;
+  transform: scale(1.05);
 }
 
 .btn-table.danger {
-    background: #e53e3e;
+  background: #ff6b6b;
 }
 
 .btn-table.danger:hover {
-    background: #b83232;
+  background: #e84848;
+}
+
+/* CONTENEDOR PRINCIPAL */
+.lista-container {
+  margin-top: 150px; 
+  padding: 30px 20px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* TÍTULO */
+.titulo-lista {
+  font-family: 'Amatic SC', sans-serif;
+  font-size: 64px;
+  color: var(--accent);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* GRID DE TARJETAS */
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+}
+
+/* TARJETA INDIVIDUAL */
+.park-card-item {
+  background: var(--card);
+  padding: 20px;
+  border-radius: 18px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+  animation: fadeInUp 0.6s ease forwards;
+  transform: translateY(15px);
+  opacity: 0;
+}
+
+.park-card-item h3 {
+  font-size: 22px;
+  margin: 0 0 6px;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.park-card-item p {
+  margin: 4px 0;
+  font-size: 14px;
+  color: #2b4d3a;
+}
+
+.park-card-item .descripcion {
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+/* BOTONES */
+.card-actions {
+  margin-top: 15px;
+  display: flex;
+  gap: 10px;
+}
+
+.btn-card {
+  flex: 1;
+  padding: 8px 12px;
+  text-align: center;
+  border-radius: 12px;
+  color: white;
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.btn-card.edit {
+  background: var(--accent);
+}
+
+.btn-card.edit:hover {
+  background: #00945f;
+  transform: scale(1.05);
+}
+
+.btn-card.delete {
+  background: #ff6868;
+}
+
+.btn-card.delete:hover {
+  background: #e44444;
+  transform: scale(1.05);
+}
+
+/* ANIMACIÓN */
+@keyframes fadeInUp {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* CONTENEDOR GENERAL */
+.form-container {
+  margin-top: 120px;
+  max-width: 600px;
+  padding: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  animation: fadeIn 0.8s ease;
+}
+
+/* TÍTULO */
+.form-title {
+  font-family: 'Amatic SC', sans-serif;
+  font-size: 70px;
+  text-align: center;
+  color: var(--accent);
+  margin-bottom: 25px;
+}
+
+/* CARD QUE CONTIENE EL FORMULARIO */
+.form-card {
+  background: var(--card);
+  padding: 28px 24px;
+  border-radius: 18px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* LABELS */
+.form-card label {
+  font-weight: 600;
+  color: #2b4d3a;
+  margin-top: 8px;
+}
+
+/* INPUTS */
+.form-card input {
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 2px solid rgba(11,42,26,0.1);
+  background: white;
+  font-size: 15px;
+  font-weight: 500;
+  outline: none;
+  transition: 0.2s;
+}
+
+.form-card input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 8px rgba(0,168,107,0.2);
+}
+
+/* BOTÓN */
+.save-btn {
+  margin-top: 10px;
+  background: var(--accent);
+  padding: 12px;
+  border-radius: 14px;
+  color: white;
+  font-weight: 700;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.save-btn:hover {
+  transform: scale(1.05);
+  background: #00945f;
+}
+
+/* ANIMACIÓN SUAVE */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+html {
+  scroll-behavior: auto !important;
 }

@@ -10,6 +10,26 @@
   <h3>Cargando tu parque más cercano…</h3>
 </div>
 
+<script>
+  const header = document.querySelector('header');
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 20) {
+      header.style.borderBottomColor = '#00965a';
+      header.style.boxShadow = '0 4px 20px rgba(0,0,0,0.12)';
+    } else {
+      header.style.borderBottomColor = 'transparent';
+      header.style.boxShadow = 'none';
+    }
+  });
+
+  const leaves = document.querySelectorAll('.leaf');
+  leaves.forEach((leaf, index) => {
+    leaf.style.animationDelay = `${index * 1.2}s`;
+  });
+</script>
+
+
 
 
 <!-- MAP WRAPPER (NUEVO REQUERIDO PARA QUE SE VEA EL MAPA) -->
@@ -17,7 +37,18 @@
     <div id="map"></div>
 </div>
 
+<div class="forest-overlay"></div>
+
+<div class="wave-bg"></div>
 <!-- SIDEBAR -->
+<div class="wave-bg"></div>
+<div class="floating-elements">
+  <div class="leaf leaf1"></div>
+  <div class="leaf leaf2"></div>
+  <div class="leaf leaf3"></div>
+  <div class="sun"></div>
+</div>
+
 <aside>
   
   <!-- BUSCADOR -->
@@ -28,10 +59,6 @@
 
   <!-- LISTA DE PARQUES -->
   <div class="park-list" id="parksContainer"></div>
-
-  <!-- UBICAR PARQUE CERCANO -->
-  <button class="btn mt" id="locateBtn">📍 Ubicar parque cercano</button>
-
 </aside>
 
 
