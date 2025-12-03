@@ -252,10 +252,10 @@ header nav a:hover {
 .wave-bg {
   position: absolute;
   width: 200%;         /* más ancho para cubrir bien */
-  height: 135vh;       /* cubrir casi toda la pantalla */
+  height: min(420px, calc(100vh - 120px));      /* cubrir casi toda la pantalla */
   background: #00c27a;
   border-radius: 0 0 50% 50%; /* curva hacia abajo */
-  top: -50%;           /* ajustar posición vertical */
+  top: 5%;           /* ajustar posición vertical */
   left: -50%;          /* centrar horizontalmente */
   transform: rotate(0deg); /* sin rotación, opcional */
   z-index: -1;
@@ -342,7 +342,7 @@ header nav a:hover {
   top: 100px;      /* mejor que margin-top */
   left: 0;
   width: 100%;
-  height: 100vh;
+  height: min(500px, calc(100vh - 100px));
   background-image: url("../img/bosque.png");
   background-repeat: no-repeat;
   background-position: center top;
