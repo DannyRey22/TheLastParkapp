@@ -3,38 +3,42 @@
 
 {% block content %}
 
-<h2>Editar Parque: {{ parque.Nombre }}</h2>
+<div class="form-container">
+    
+    <h2 class="form-title">Editar Parque: {{ parque.Nombre }}</h2>
 
-<form method="POST" class="formulario">
+    <form method="POST" class="form-card">
 
-  <label>Nombre:</label>
-  <input name="nombre" value="{{ parque.Nombre }}" required>
+        <label>Nombre:</label>
+        <input name="nombre" value="{{ parque.Nombre }}" required>
 
-  <label>Localidad:</label>
-  <input name="localidad" value="{{ parque.Localidad }}" required>
+        <label>Localidad:</label>
+        <input name="localidad" value="{{ parque.Localidad }}" required>
 
-  <label>Dirección:</label>
-  <input name="direccion" value="{{ parque.Direccion }}" required>
+        <label>Dirección:</label>
+        <input name="direccion" value="{{ parque.Direccion }}" required>
 
-  <label>Tamaño (m²):</label>
-  <input name="tamano" type="number" value="{{ parque.Tamano_m2 }}" required>
+        <label>Tamaño (m²):</label>
+        <input name="tamano" type="number" value="{{ parque.Tamano_m2 }}" required>
 
-  <label>Tipo:</label>
-  <input name="tipo" value="{{ parque.Tipo }}" required>
+        <label>Tipo:</label>
+        <input name="tipo" value="{{ parque.Tipo }}" required>
 
-  <label>Estado:</label>
-  <input name="estado" value="{{ parque.Estado }}" required>
+        <label>Estado:</label>
+        <input name="estado" value="{{ parque.Estado }}" required>
 
-  <label>Canchas:</label>
-  <input name="canchas" value="{{ parque.Canchas }}" required>
+        <label>Canchas:</label>
+        <input name="canchas" value="{{ parque.Canchas }}" required>
 
-  <label>Juegos:</label>
-  <input name="juegos" value="{{ parque.Juegos }}" required>
+        <label>Juegos:</label>
+        <input name="juegos" value="{{ parque.Juegos }}" required>
 
-  <label>Último mantenimiento:</label>
-  <input name="mantenimiento" type="date" value="{{ parque.Ultimo_mantenimiento }}" required>
+        <label>Último mantenimiento:</label>
+        <input name="mantenimiento" type="date" value="{{ parque.Ultimo_mantenimiento }}" required>
 
-  <button class="btn">Actualizar</button>
-</form>
+        <button class="btn save-btn">Actualizar</button>
+    </form>
+
+</div>
 
 {% endblock %}

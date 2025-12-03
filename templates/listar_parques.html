@@ -3,37 +3,37 @@
 
 {% block content %}
 
-<h2 class="titulo-lista">Lista de Parques</h2>
+<!-- CONTENEDOR PRINCIPAL -->
+<div class="lista-container">
 
-<table class="tabla-parques">
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>Nombre</th>
-      <th>Localidad</th>
-      <th>Dirección</th>
-      <th>Área (m²)</th>
-      <th>Descripción</th>
-      <th>Acciones</th>
-    </tr>
-  </thead>
+    <h2 class="titulo-lista">Lista de Parques</h2>
 
-  <tbody>
-    {% for parque in parques %}
-    <tr>
-      <td>{{ parque.id }}</td>
-      <td>{{ parque.nombre }}</td>
-      <td>{{ parque.localidad }}</td>
-      <td>{{ parque.direccion }}</td>
-      <td>{{ parque.area_m2 }}</td>
-      <td>{{ parque.descripcion }}</td>
-      <td>
-        <a class="btn-table" href="/editar/{{ parque.id }}">Editar</a>
-        <a class="btn-table danger" href="/eliminar/{{ parque.id }}">Eliminar</a>
-      </td>
-    </tr>
-    {% endfor %}
-  </tbody>
-</table>
+    <!-- CONTENEDOR DE TARJETAS -->
+    <div class="cards-container">
+
+        {% for parque in parques %}
+        <div class="park-card-item">
+
+            <div class="card-info">
+                <h3>{{ parque.nombre }}</h3>
+
+                <p><strong>Localidad:</strong> {{ parque.localidad }}</p>
+                <p><strong>Dirección:</strong> {{ parque.direccion }}</p>
+                <p><strong>Área:</strong> {{ parque.area_m2 }} m²</p>
+
+                <p class="descripcion">{{ parque.descripcion }}</p>
+            </div>
+
+            <div class="card-actions">
+                <a class="btn-card edit" href="/editar/{{ parque.id }}">Editar</a>
+                <a class="btn-card delete" href="/eliminar/{{ parque.id }}">Eliminar</a>
+            </div>
+
+        </div>
+        {% endfor %}
+
+    </div>
+
+</div>
 
 {% endblock %}

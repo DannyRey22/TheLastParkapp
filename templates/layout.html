@@ -21,14 +21,21 @@
 <header class="top-header">
   <div class="header-titles">
     <h1 class="title-miparque">Mi Parque</h1>
-    <p class="subtitle">Encuentra parques cerca de ti</p>
+    <p class="subtitle">Más cerca mas felices</p>
   </div>
 
-  <nav class="header-actions">
-    <a href="/" class="header-btn">🏠 Inicio</a>
+<nav class="header-actions">
+  <div class="left-buttons">
+    <a href="/" class="header-btn">Inicio</a>
     <a href="/parques" class="header-btn ghost">Lista</a>
-    <a href="/agregar" class="header-btn">➕ Agregar</a>
-  </nav>
+    <a href="/agregar" class="header-btn">Agregar</a>
+  </div>
+  <div class="right-buttons">
+    <a href="#" class="header-btn" id="locateBtn"> Cercano</a>
+    <a href="#" class="header-btn ghost" id="listAllBtn">Mostrar todos</a>
+  </div>
+</nav>
+
 </header>
 
 <main>
@@ -42,5 +49,6 @@
 {% block extra_js %}
 <script src="{{ url_for('static', filename='js/map.js') }}" defer></script>
 {% endblock %}
+
 </body>
 </html>

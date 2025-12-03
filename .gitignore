@@ -1,1 +1,10 @@
-.venv/
+# Ignorar entorno virtual
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
